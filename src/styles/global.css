@@ -1,0 +1,96 @@
+:root {
+  --linen: #eceeea;
+  --ink: #12201f;
+  --mint: #bdd2c6;
+  --mist: #c6d4da;
+  --pulse: #d6455d;
+  --mute: #5d6b69;
+  --serif: "Instrument Serif", "Times New Roman", serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --pad: clamp(20px, 5vw, 72px);
+  color: var(--ink);
+  background: var(--linen);
+  font-family: var(--sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+html.lenis, html.lenis body { height: auto; }
+html, body, #root { margin: 0; width: 100%; }
+body { overflow-x: hidden; background: var(--linen); }
+a { color: inherit; text-decoration: none; }
+h1, h2, p { margin: 0; font-weight: 400; }
+::selection { background: var(--ink); color: var(--linen); }
+:focus-visible { outline: 2px solid var(--pulse); outline-offset: 4px; }
+.site { width: 100%; overflow-x: clip; }
+
+/* ---------- Abertura ---------- */
+.hero { position: relative; min-height: 100svh; display: grid; padding: var(--pad); overflow: hidden; }
+.hero-inner { display: flex; flex-direction: column; justify-content: space-between; position: relative; z-index: 1; min-height: calc(100svh - var(--pad) * 2); }
+.hero-top, .hero-meta { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; letter-spacing: .02em; color: var(--mute); }
+.hero-ring { position: absolute; width: min(90vw, 780px); aspect-ratio: 1; right: -12vw; top: 8vh; border: 1px solid rgba(18,32,31,.16); border-radius: 50%; }
+.hero-ring::after { content: ""; position: absolute; inset: 14%; border: 1px dashed rgba(18,32,31,.18); border-radius: 50%; }
+.hero-ring::before { content: ""; position: absolute; top: -5px; left: 50%; width: 9px; height: 9px; border-radius: 50%; background: var(--pulse); }
+.coin { position: absolute; left: 50%; top: 52%; width: clamp(92px, 12vw, 128px); aspect-ratio: 1; margin: calc(clamp(92px, 12vw, 128px) / -2) 0 0 calc(clamp(92px, 12vw, 128px) / -2); display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--linen); box-shadow: 0 0 0 8px rgba(18,32,31,.07); transform-style: preserve-3d; }
+.coin span { font: 400 clamp(54px, 7vw, 72px)/1 var(--serif); }
+.hero-name { margin-top: auto; display: flex; font: 400 clamp(76px, 21vw, 340px)/.82 var(--serif); letter-spacing: -.045em; margin-left: -.04em; padding-bottom: .06em; }
+.hero-mask { display: block; overflow: hidden; padding-bottom: .09em; margin-bottom: -.09em; }
+.hero-letter { display: block; }
+.hero-rule { height: 1px; background: var(--ink); transform-origin: left; margin: 20px 0 16px; }
+.hero-meta a { color: var(--ink); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+/* ---------- Texto de abertura da história ---------- */
+.story { position: relative; padding: clamp(110px, 22vh, 240px) var(--pad) clamp(90px, 16vh, 180px); }
+.story-text { max-width: 15.5em; margin-left: clamp(0px, 14vw, 240px); font: 400 clamp(30px, 5.4vw, 80px)/1.12 var(--serif); letter-spacing: -.015em; }
+.story-line { display: block; margin-bottom: .55em; }
+.story-line:last-child { margin-bottom: 0; }
+.pulse { display: block; width: 100%; height: clamp(60px, 9vw, 110px); margin-top: clamp(60px, 12vh, 130px); overflow: visible; }
+.pulse path { stroke: var(--pulse); stroke-width: 1.5; }
+
+/* ---------- Cenas fixas em tela cheia ---------- */
+.scenes { position: relative; height: 100svh; overflow: hidden; background: var(--ink); }
+.scene { position: absolute; inset: 0; overflow: hidden; padding: var(--pad); }
+.tone-linen { background: #e3e8e2; }
+.tone-mint { background: var(--mint); }
+.tone-mist { background: var(--mist); }
+.scene-word { position: absolute; left: var(--pad); bottom: calc(var(--pad) * .6); font: 400 clamp(60px, 17.5vw, 290px)/.86 var(--serif); letter-spacing: -.045em; padding-bottom: .08em; white-space: nowrap; }
+.scene-photo { position: absolute; right: var(--pad); top: calc(var(--pad) + 28px); width: clamp(190px, 27vw, 400px); aspect-ratio: 4 / 5; background-repeat: no-repeat; background-size: var(--z) auto; background-position: var(--x) var(--y); box-shadow: 0 30px 60px -30px rgba(18,32,31,.45); }
+.scene-no { position: absolute; left: var(--pad); top: var(--pad); font-size: 13px; color: var(--mute); }
+.scenes-count { position: absolute; z-index: 5; right: var(--pad); bottom: var(--pad); display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.scenes-count-win { overflow: hidden; height: 1.4em; }
+.scenes-count-inner { display: flex; flex-direction: column; line-height: 1.4; }
+.scenes-count i { width: 34px; height: 1px; background: var(--ink); }
+
+/* ---------- Final ---------- */
+.ending { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--pad) * 1.6) var(--pad) var(--pad); background: var(--ink); color: var(--linen); position: relative; }
+.end-title { font: 400 clamp(64px, 15vw, 250px)/.88 var(--serif); letter-spacing: -.045em; }
+.end-line { display: block; }
+.end-line:last-child { padding-left: clamp(0px, 12vw, 200px); }
+.end-mask { display: inline-block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; vertical-align: top; }
+.end-letter { display: inline-block; }
+.end-text { width: min(30rem, 100%); margin: clamp(40px, 8vh, 90px) 0 0 auto; font: 300 clamp(17px, 1.6vw, 21px)/1.7 var(--sans); color: rgba(236,238,234,.82); }
+.end-sign { margin: 28px 0 0 auto; width: min(30rem, 100%); font: italic 400 34px/1 var(--serif); color: var(--mint); }
+.end-foot { position: absolute; left: var(--pad); right: var(--pad); bottom: 24px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(236,238,234,.5); }
+
+/* ---------- Celular ---------- */
+@media (max-width: 700px) {
+  .hero-ring { right: -40vw; top: 18vh; }
+  .coin { top: 50%; }
+  .hero-name { font-size: 26.5vw; }
+  .hero-top span:first-child { max-width: 11em; }
+  .story-text { margin-left: 0; }
+  .scene-photo { width: min(68vw, 300px); top: calc(var(--pad) + 40px); }
+  .scene-word { bottom: 74px; font-size: 21vw; }
+  .end-text, .end-sign { margin-left: 0; }
+  .end-line:last-child { padding-left: 0; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .scene-photo { width: 22vw; } .scene-word { font-size: 18vh; }
+}
+
+/* ---------- Movimento reduzido: cenas empilhadas, sem pin ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .scenes { height: auto; overflow: visible; }
+  .scene { position: relative; min-height: 90svh; }
+  .scenes-count { display: none; }
+}
